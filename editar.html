@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Produto</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h1{
+            font-family: 'Lucida Sans';
+            font-size:30pt;
+            text-align: center;
+            text-shadow: 2px 2px 5px silver;
+            padding: 20px;
+        }
+        form{
+            width: 40vw;
+            padding:20px;
+            background-color: #fff;
+            margin: 0 auto;
+            border-top-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            box-shadow: 2px 2px 5px black;
+        }
+        input,select{
+            display: block;
+            padding: 10px;
+            font-size: 14pt;
+            font-family: tahoma;
+            outline-color: rgb(101, 43, 236);
+            border: 0px;
+            border-bottom: 1px solid silver;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <h1>Editar o Produto</h1>
+    <form action="/atualizar/{{produto.id}}" method="post">
+        <input type="text" name="nome" value="{{produto.nome}}" placeholder="Nome do Produto">
+        <select name="tipo">
+            <option value="{{produto.tipo}}">{{produto.tipo}}</option>
+            <option value="Alimento">Alimento</option>
+            <option value="Bebida">Bebida</option>
+            <option value="Limpeza">Limpeza</option>
+            <option value="Beleza">Beleza</option>
+        </select>
+        <input type="number" step="0.01" min="0.00" name="preco" max="500.0" value={{produto.preco}} placeholder="Preço">
+        <input type="submit" value="Atualizar">
+    </form>
+</body>
+
+</html>
